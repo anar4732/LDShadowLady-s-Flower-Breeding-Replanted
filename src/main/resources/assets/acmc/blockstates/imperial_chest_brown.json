@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "acmc:block/imperial_chest_brown" },
+    "facing=south": { "model": "acmc:block/imperial_chest_brown", "y": 180, "uvlock": false},
+    "facing=east": { "model": "acmc:block/imperial_chest_brown", "y": 90, "uvlock": false},
+    "facing=west": { "model": "acmc:block/imperial_chest_brown", "y": 270, "uvlock": false}
+  }
+}
