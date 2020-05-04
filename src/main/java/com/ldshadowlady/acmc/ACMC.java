@@ -1,6 +1,7 @@
 package com.ldshadowlady.acmc;
 
 import com.ldshadowlady.acmc.blocks.ACMCBlocks;
+import com.ldshadowlady.acmc.items.ACMCItems;
 import com.ldshadowlady.acmc.lists.ItemList;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -43,6 +44,7 @@ public class ACMC
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         ACMCBlocks.REG.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ACMCItems.REG.register(FMLJavaModLoadingContext.get().getModEventBus());
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 

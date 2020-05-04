@@ -1,5 +1,6 @@
 package com.ldshadowlady.acmc.blocks;
 
+import javafx.geometry.VerticalDirection;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.PushReaction;
@@ -34,6 +35,7 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 
 import static net.minecraft.state.properties.BlockStateProperties.FACING;
+import static net.minecraft.state.properties.BlockStateProperties.FACING_EXCEPT_UP;
 
 public class BlockImperialChest extends HorizontalBlock {
 
@@ -51,8 +53,8 @@ public class BlockImperialChest extends HorizontalBlock {
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
-        return (BlockState)this.getDefaultState().with(HORIZONTAL_FACING, p_196258_1_.getNearestLookingDirection().getOpposite().getOpposite());
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        return (BlockState)this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite().getOpposite());
     }
 
 }
