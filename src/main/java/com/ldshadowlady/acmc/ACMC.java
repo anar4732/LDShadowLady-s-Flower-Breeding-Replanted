@@ -1,13 +1,9 @@
 package com.ldshadowlady.acmc;
 
-import com.ldshadowlady.acmc.blocks.BlockImperialChest;
-import com.ldshadowlady.acmc.lists.BlockList;
+import com.ldshadowlady.acmc.blocks.ACMCBlocks;
 import com.ldshadowlady.acmc.lists.ItemList;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
@@ -31,6 +27,8 @@ import java.util.stream.Collectors;
 @Mod("acmc")
 public class ACMC
 {
+
+
     public static final String modid = "acmc";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
@@ -44,9 +42,10 @@ public class ACMC
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-
+        ACMCBlocks.REG.register(FMLJavaModLoadingContext.get().getModEventBus());
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -89,11 +88,7 @@ public class ACMC
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent)
         {
             blockRegistryEvent.getRegistry().registerAll(
-                    BlockList.imperial_chest_brown = (BlockImperialChest) new BlockImperialChest(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)).setRegistryName(location("imperial_chest_brown")),
-                    BlockList.imperial_chest_blue = new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)).setRegistryName(location("imperial_chest_blue")),
-                    BlockList.imperial_chest_red = new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)).setRegistryName(location("imperial_chest_red")),
-                    BlockList.imperial_chest_black = new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)).setRegistryName(location("imperial_chest_black")),
-                    BlockList.imperial_chest_pink = new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)).setRegistryName(location("imperial_chest_pink"))
+
 
             );
             LOGGER.info("HELLO from Register Block");
@@ -103,14 +98,8 @@ public class ACMC
         public static void registerItems(final RegistryEvent.Register<Item> event)
         {
             event.getRegistry().registerAll(
-                    ItemList.example_item = new Item(new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(location("example_item")),
+                    ItemList.example_item = new Item(new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(location("example_item")));
 
-                    ItemList.imperial_chest_brown = new BlockItem(BlockList.imperial_chest_brown, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.imperial_chest_brown.getRegistryName()),
-                    ItemList.imperial_chest_red = new BlockItem(BlockList.imperial_chest_red, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.imperial_chest_red.getRegistryName()),
-                    ItemList.imperial_chest_blue = new BlockItem(BlockList.imperial_chest_blue, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.imperial_chest_blue.getRegistryName()),
-                    ItemList.imperial_chest_black = new BlockItem(BlockList.imperial_chest_black, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.imperial_chest_black.getRegistryName()),
-                    ItemList.imperial_chest_pink = new BlockItem(BlockList.imperial_chest_pink, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.imperial_chest_pink.getRegistryName())
-            );
             LOGGER.info("HELLO from Register Item");
         }
 

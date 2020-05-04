@@ -3,8 +3,8 @@
 	"parent": "block/soul_sand",
 	"texture_size": [64, 64],
 	"textures": {
-		"2": "acmc:block/imperial_chest_brown",
-		"particle": "acmc:block/imperial_chest_brown"
+		"2": "acmc:block/brown_imperial_chest",
+		"particle": "acmc:block/brown_imperial_chest"
 	},
 	"elements": [
 		{
