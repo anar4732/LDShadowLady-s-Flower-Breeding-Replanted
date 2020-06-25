@@ -2,7 +2,7 @@ package com.ldshadowlady.acmc;
 
 import com.ldshadowlady.acmc.blocks.ACMCBlocks;
 import com.ldshadowlady.acmc.items.ACMCItems;
-import com.ldshadowlady.acmc.lists.ItemList;
+import com.ldshadowlady.acmc.items.FlowerComposting;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
@@ -11,6 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -41,6 +42,7 @@ public class ACMC
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+        FMLJavaModLoadingContext.get().getModEventBus().<FMLCommonSetupEvent>addListener(e -> { DeferredWorkQueue.runLater(FlowerComposting::init); });
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         ACMCBlocks.REG.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -99,8 +101,7 @@ public class ACMC
         @SubscribeEvent
         public static void registerItems(final RegistryEvent.Register<Item> event)
         {
-            event.getRegistry().registerAll(
-                    ItemList.example_item = new Item(new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(location("example_item")));
+            event.getRegistry().registerAll();
 
             LOGGER.info("HELLO from Register Item");
         }
