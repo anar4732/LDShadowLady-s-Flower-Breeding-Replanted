@@ -1,13 +1,11 @@
 package com.ldshadowlady.acmc.items;
 
 import com.ldshadowlady.acmc.blocks.ACMCBlocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
 public class FlowerItemGroup extends ItemGroup {
-
-    public FlowerItemGroup(String label) {
+    public FlowerItemGroup() {
         super("FlowerBreeding");
     }
 

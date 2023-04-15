@@ -1,11 +1,8 @@
 package com.ldshadowlady.acmc.items;
 
-import com.google.common.collect.ImmutableMap;
 import com.ldshadowlady.acmc.blocks.ACMCBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,7 +10,6 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.SoundCategory;
@@ -25,15 +21,12 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Map;
 
 import static net.minecraft.block.Blocks.*;
 
 public class PollenJarRedItem extends Item {
-
-
-    public PollenJarRedItem(Properties p_i48487_1_) {
-        super(p_i48487_1_);
+    public PollenJarRedItem(Properties properties) {
+        super(properties);
     }
 
     public ActionResultType onItemUse(ItemUseContext context) {
@@ -42,9 +35,7 @@ public class PollenJarRedItem extends Item {
         BlockState blockstate = world.getBlockState(blockpos);
         LivingEntity player = context.getPlayer();
         ItemStack itemstack = context.getItem();
-
-
-
+		
         //if it is a viable flower
         if (blockstate.getBlock().equals(ROSE_BUSH) || blockstate.getBlock().equals(WITHER_ROSE) || blockstate.getBlock().equals(DANDELION) || blockstate.getBlock().equals(POPPY) ||
                 blockstate.getBlock().equals(BLUE_ORCHID) || blockstate.getBlock().equals(ALLIUM) || blockstate.getBlock().equals(AZURE_BLUET) || blockstate.getBlock().equals(RED_TULIP) ||
@@ -112,6 +103,3 @@ public class PollenJarRedItem extends Item {
         tooltip.add(new TranslationTextComponent("item.full_pollen_jar.desc"));
     }
 }
-
-
-

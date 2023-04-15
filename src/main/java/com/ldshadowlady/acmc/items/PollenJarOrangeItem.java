@@ -10,7 +10,6 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.SoundCategory;
@@ -26,10 +25,8 @@ import java.util.List;
 import static net.minecraft.block.Blocks.*;
 
 public class PollenJarOrangeItem extends Item {
-
-
-    public PollenJarOrangeItem(Properties p_i48487_1_) {
-        super(p_i48487_1_);
+    public PollenJarOrangeItem(Properties properties) {
+        super(properties);
     }
 
     public ActionResultType onItemUse(ItemUseContext context) {
@@ -38,9 +35,7 @@ public class PollenJarOrangeItem extends Item {
         BlockState blockstate = world.getBlockState(blockpos);
         LivingEntity player = context.getPlayer();
         ItemStack itemstack = context.getItem();
-
-
-
+		
         //if it is a viable flower
         if (blockstate.getBlock().equals(ROSE_BUSH) || blockstate.getBlock().equals(WITHER_ROSE) || blockstate.getBlock().equals(DANDELION) || blockstate.getBlock().equals(POPPY) ||
                 blockstate.getBlock().equals(BLUE_ORCHID) || blockstate.getBlock().equals(ALLIUM) || blockstate.getBlock().equals(AZURE_BLUET) || blockstate.getBlock().equals(RED_TULIP) ||
@@ -108,6 +103,3 @@ public class PollenJarOrangeItem extends Item {
         tooltip.add(new TranslationTextComponent("item.full_pollen_jar.desc"));
     }
 }
-
-
-

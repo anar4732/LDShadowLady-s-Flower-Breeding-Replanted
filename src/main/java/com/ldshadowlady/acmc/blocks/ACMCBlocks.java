@@ -11,10 +11,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import static com.ldshadowlady.acmc.ACMC.modid;
 
 public final class ACMCBlocks {
-    private ACMCBlocks() {}
     public static final DeferredRegister<Block> REG = new DeferredRegister<>(ForgeRegistries.BLOCKS, modid);
-
-
+	
     //Crop blocks
     public static final RegistryObject<BlockFlowerCrop> CROP_BLACK_ROSE = REG.register("crop_black_rose", () -> new BlockFlowerCrop(Block.Properties.create(Material.MISCELLANEOUS).tickRandomly().doesNotBlockMovement().sound(SoundType.PLANT)));
     public static final RegistryObject<BlockFlowerCrop> CROP_BLUE_ROSE = REG.register("crop_blue_rose", () -> new BlockFlowerCrop(Block.Properties.create(Material.MISCELLANEOUS).tickRandomly().doesNotBlockMovement().sound(SoundType.PLANT)));
@@ -389,6 +387,4 @@ public final class ACMCBlocks {
     public static final RegistryObject<BlockVineFlower> STUNTED_FLOWER_WHITE_ORCHID = REG.register("stunted_flower_white_orchid", () -> new BlockVineFlower(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().sound(SoundType.PLANT)));
     public static final RegistryObject<BlockVineFlower> STUNTED_FLOWER_YELLOW_ORCHID = REG.register("stunted_flower_yellow_orchid", () -> new BlockVineFlower(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().sound(SoundType.PLANT)));
     public static final RegistryObject<BlockVineFlower> STUNTED_FLOWER_LILAC_ORCHID = REG.register("stunted_flower_lilac_orchid", () -> new BlockVineFlower(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().sound(SoundType.PLANT)));
-    
-    
 }

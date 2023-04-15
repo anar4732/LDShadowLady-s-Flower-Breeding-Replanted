@@ -1,7 +1,6 @@
 package com.ldshadowlady.acmc.items;
 
 import net.minecraft.block.ComposterBlock;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class FlowerComposting {
     public static void init () {
@@ -316,7 +315,5 @@ public class FlowerComposting {
             ComposterBlock.CHANCES.put(ACMCItems.STUNTED_FLOWER_WHITE_ORCHID.get(), 0.65F);
             ComposterBlock.CHANCES.put(ACMCItems.STUNTED_FLOWER_YELLOW_ORCHID.get(), 0.65F);
             ComposterBlock.CHANCES.put(ACMCItems.STUNTED_FLOWER_LILAC_ORCHID.get(), 0.65F);
-
     }
-
 }
