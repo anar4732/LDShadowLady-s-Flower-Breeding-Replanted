@@ -8,10 +8,10 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static com.ldshadowlady.acmc.ACMC.modid;
+import static com.ldshadowlady.acmc.ACMCMod.MODID;
 
 public final class ACMCBlocks {
-    public static final DeferredRegister<Block> REG = new DeferredRegister<>(ForgeRegistries.BLOCKS, modid);
+    public static final DeferredRegister<Block> REG = new DeferredRegister<>(ForgeRegistries.BLOCKS, MODID);
 	
     //Crop blocks
     public static final RegistryObject<BlockFlowerCrop> CROP_BLACK_ROSE = REG.register("crop_black_rose", () -> new BlockFlowerCrop(Block.Properties.create(Material.MISCELLANEOUS).tickRandomly().doesNotBlockMovement().sound(SoundType.PLANT)));

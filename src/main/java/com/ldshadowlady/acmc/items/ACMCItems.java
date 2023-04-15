@@ -9,10 +9,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
-import static com.ldshadowlady.acmc.ACMC.modid;
+import static com.ldshadowlady.acmc.ACMCMod.MODID;
 
 public final class ACMCItems {
-	public static final DeferredRegister<Item> REG = new DeferredRegister<>(ForgeRegistries.ITEMS, modid);
+	public static final DeferredRegister<Item> REG = new DeferredRegister<>(ForgeRegistries.ITEMS, MODID);
 	
 	public static final RegistryObject<Item> EMPTY_POLLEN_JAR = REG.register("empty_pollen_jar", () -> new EmptyPollenJarItem(defaultProperties()));
 	public static final RegistryObject<Item> POLLEN_JAR_ROSE = REG.register("pollen_jar_rose", () -> new PollenJarRedItem(defaultProperties()));
