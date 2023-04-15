@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import static com.ldshadowlady.acmc.ACMCMod.MODID;
 
 public final class ACMCBlocks {
-    public static final DeferredRegister<Block> REG = new DeferredRegister<>(ForgeRegistries.BLOCKS, MODID);
+    public static final DeferredRegister<Block> REG = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 	
     //Crop blocks
     public static final RegistryObject<BlockFlowerCrop> CROP_BLACK_ROSE = REG.register("crop_black_rose", () -> new BlockFlowerCrop(Block.Properties.create(Material.MISCELLANEOUS).tickRandomly().doesNotBlockMovement().sound(SoundType.PLANT)));
@@ -348,14 +348,14 @@ public final class ACMCBlocks {
     public static final RegistryObject<FlowerPotBlock> FLOWER_POT_LILAC_TULIP = REG.register("flower_pot_lilac_tulip", () -> new FlowerPotBlock(ACMCBlocks.FLOWER_LILAC_TULIP.get(), Block.Properties.create(Material.MISCELLANEOUS)));
     public static final RegistryObject<FlowerPotBlock> FLOWER_POT_LILAC_DAISY = REG.register("flower_pot_lilac_daisy", () -> new FlowerPotBlock(ACMCBlocks.FLOWER_LILAC_DAISY.get(), Block.Properties.create(Material.MISCELLANEOUS)));
 
-    public static final RegistryObject<BlockCandle> BLACK_CANDLE = REG.register("black_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().lightValue(4).sound(SoundType.WOOD)));
-    public static final RegistryObject<BlockCandle> BLUE_CANDLE = REG.register("blue_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().lightValue(4).sound(SoundType.WOOD)));
-    public static final RegistryObject<BlockCandle> CYAN_CANDLE = REG.register("cyan_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().lightValue(4).sound(SoundType.WOOD)));
-    public static final RegistryObject<BlockCandle> GREEN_CANDLE = REG.register("green_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().lightValue(4).sound(SoundType.WOOD)));
-    public static final RegistryObject<BlockCandle> ORANGE_CANDLE = REG.register("orange_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().lightValue(4).sound(SoundType.WOOD)));
-    public static final RegistryObject<BlockCandle> PINK_CANDLE = REG.register("pink_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().lightValue(4).sound(SoundType.WOOD)));
-    public static final RegistryObject<BlockCandle> RED_CANDLE = REG.register("red_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().lightValue(4).sound(SoundType.WOOD)));
-    public static final RegistryObject<BlockCandle> WHITE_CANDLE = REG.register("white_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().lightValue(4).sound(SoundType.WOOD)));
+    public static final RegistryObject<BlockCandle> BLACK_CANDLE = REG.register("black_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().setLightLevel(state -> 4).sound(SoundType.WOOD)));
+    public static final RegistryObject<BlockCandle> BLUE_CANDLE = REG.register("blue_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().setLightLevel(state -> 4).sound(SoundType.WOOD)));
+    public static final RegistryObject<BlockCandle> CYAN_CANDLE = REG.register("cyan_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().setLightLevel(state -> 4).sound(SoundType.WOOD)));
+    public static final RegistryObject<BlockCandle> GREEN_CANDLE = REG.register("green_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().setLightLevel(state -> 4).sound(SoundType.WOOD)));
+    public static final RegistryObject<BlockCandle> ORANGE_CANDLE = REG.register("orange_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().setLightLevel(state -> 4).sound(SoundType.WOOD)));
+    public static final RegistryObject<BlockCandle> PINK_CANDLE = REG.register("pink_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().setLightLevel(state -> 4).sound(SoundType.WOOD)));
+    public static final RegistryObject<BlockCandle> RED_CANDLE = REG.register("red_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().setLightLevel(state -> 4).sound(SoundType.WOOD)));
+    public static final RegistryObject<BlockCandle> WHITE_CANDLE = REG.register("white_candle", () -> new BlockCandle(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().setLightLevel(state -> 4).sound(SoundType.WOOD)));
 
     public static final RegistryObject<BlockVineFlower> STUNTED_FLOWER_BLACK_LILY = REG.register("stunted_flower_black_lily", () -> new BlockVineFlower(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().sound(SoundType.PLANT)));
     public static final RegistryObject<BlockVineFlower> STUNTED_FLOWER_BLUE_LILY = REG.register("stunted_flower_blue_lily", () -> new BlockVineFlower(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().sound(SoundType.PLANT)));

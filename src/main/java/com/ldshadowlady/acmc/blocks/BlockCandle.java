@@ -5,7 +5,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.state.IProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -33,12 +32,12 @@ public class BlockCandle extends HorizontalBlock {
         super(properties);
         this.setDefaultState((this.stateContainer.getBaseState()).with(HORIZONTAL_FACING, Direction.SOUTH).with(CANDLES, 1));
     }
-
-    public int getLightValue(BlockState blockstate) {
-        return super.getLightValue(blockstate) + 2 * (Integer)blockstate.get(CANDLES);
-    }
-
-    @OnlyIn(Dist.CLIENT)
+	@Override
+	public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
+		return super.getLightValue(state, world, pos) + 2 * state.get(CANDLES);
+	}
+	
+	@OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, World world, BlockPos pos, Random random) {
         double posX = (double)pos.getX();
         double posY = (double)pos.getY();
@@ -231,56 +230,12 @@ public class BlockCandle extends HorizontalBlock {
             world.addParticle(ParticleTypes.FLAME, posX + transformedcandleFourPosX , posY + 0.58D, posZ + transformedcandleFourPosZ, 0.0D, 0.0D, 0.0D);
         }
 		
-/*
-        if (FACING == Direction.NORTH && CANDLECOUNT == 2){
-            world.addParticle(ParticleTypes.FLAME, posX + 0.25D , posY + 0.58D, posZ + 0.56D, 0.0D, 0.0D, 0.0D);
-            world.addParticle(ParticleTypes.FLAME, posX +0.67D , posY + 0.63D, posZ + 0.34D, 0.0D, 0.0D, 0.0D);
-        }
-        else if (FACING == Direction.SOUTH && CANDLECOUNT == 2){
-        }
-        else if (FACING == Direction.SOUTH && CANDLECOUNT == 1){
-        }
-        else if (FACING == Direction.EAST && CANDLECOUNT == 1) {
-        }
-        else if (FACING == Direction.WEST && CANDLECOUNT == 1){
-        }
-        else if (FACING == Direction.NORTH && CANDLECOUNT == 3){
-            world.addParticle(ParticleTypes.FLAME, posX + 0.19D , posY + 0.55D, posZ + 0.58D, 0.0D, 0.0D, 0.0D);
-            world.addParticle(ParticleTypes.FLAME, posX + 0.56D , posY +0.48D, posZ + 0.67D, 0.0D, 0.0D, 0.0D);
-            world.addParticle(ParticleTypes.FLAME, posX +0.72D , posY +0.63D, posZ + 0.36D, 0.0D, 0.0D, 0.0D);
-        }
-        else if (FACING == Direction.NORTH && CANDLECOUNT == 4){
-            world.addParticle(ParticleTypes.FLAME, posX + 0.19D , posY + 0.55D, posZ + 0.7D, 0.0D, 0.0D, 0.0D);
-            world.addParticle(ParticleTypes.FLAME, posX + 0.61D , posY + 0.5D, posZ + 0.8D, 0.0D, 0.0D, 0.0D);
-            world.addParticle(ParticleTypes.FLAME, posX + 0.34D , posY + 0.64D, posZ + 0.21D, 0.0D, 0.0D, 0.0D);
-            world.addParticle(ParticleTypes.FLAME, posX + 0.7D , posY + 0.58D, posZ + 0.41D, 0.0D, 0.0D, 0.0D);
-        }
-        else  {
-            switch(blockDirection) {
-                case EAST:
-                    world.addParticle(ParticleTypes.FLAME, posX + 0.55, posY + 0.68D, posZ + 0.55D, 0.0D, 0.0D, 0.0D);
-                    break;
-                case WEST:
-                    world.addParticle(ParticleTypes.FLAME, posX + 0.52, posY + 0.68D, posZ + 0.5D, 0.0D, 0.0D, 0.0D);
-                    break;
-                case NORTH:
-                    world.addParticle(ParticleTypes.FLAME, posX + 0.54, posY + 0.64D, posZ + 0.48D, 0.0D, 0.0D, 0.0D);
-                    break;
-                case SOUTH:
-                    world.addParticle(ParticleTypes.FLAME, posX + 0.5, posY + 0.68D, posZ + 0.55D, 0.0D, 0.0D, 0.0D);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-*/
     }
 
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> p_206840_1_) {
-        p_206840_1_.add(new IProperty[]{HORIZONTAL_FACING,CANDLES});
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> stateBuilder) {
+        stateBuilder.add(HORIZONTAL_FACING, CANDLES);
     }
 
     @Override
