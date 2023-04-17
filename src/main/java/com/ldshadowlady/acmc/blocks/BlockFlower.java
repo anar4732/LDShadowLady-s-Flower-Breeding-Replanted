@@ -12,13 +12,8 @@ public class BlockFlower extends BushBlock {
 	private final VoxelShape Shape;
 	
 	public BlockFlower(Properties properties, VoxelShape ShapeIn) {
-		super(properties);
+		super(properties.offsetType(OffsetType.XZ));
 		this.Shape = ShapeIn;
-	}
-	
-	@Override
-	public OffsetType getOffsetType() {
-		return OffsetType.XZ;
 	}
 	
 	@Override

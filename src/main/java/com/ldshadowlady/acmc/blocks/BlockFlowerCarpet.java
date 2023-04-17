@@ -9,13 +9,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BlockFlowerCarpet extends BushBlock {
-	public BlockFlowerCarpet(Properties p_i48440_1_) {
-		super(p_i48440_1_);
-	}
 	
-	@Override
-	public OffsetType getOffsetType() {
-		return OffsetType.XZ;
+	public BlockFlowerCarpet(Properties properties) {
+		super(properties.offsetType(OffsetType.XZ));
 	}
 	
 	protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
@@ -24,4 +20,5 @@ public class BlockFlowerCarpet extends BushBlock {
 	public VoxelShape getShape(BlockState state, BlockGetter blockReader, BlockPos pos, CollisionContext selectionContext) {
 		return SHAPE;
 	}
+	
 }

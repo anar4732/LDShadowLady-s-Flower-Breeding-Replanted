@@ -5,7 +5,6 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -132,7 +131,7 @@ public class PollenJarOrangeItem extends Item {
 	
 	@Override
     public void appendHoverText(ItemStack itemStack, @Nullable Level world, List< Component > list, TooltipFlag flag) {
-        list.add(new TranslatableComponent("item.full_pollen_jar.desc"));
+        list.add(Component.translatable("item.full_pollen_jar.desc"));
     }
 	
 }
