@@ -10,7 +10,7 @@ public class FlowerItemGroup extends ItemGroup {
     }
 
     @Override
-    public ItemStack createIcon() {
+    public ItemStack makeIcon() {
         return new ItemStack(ACMCBlocks.FLOWER_PINK_POPPY.get());
     }
 }

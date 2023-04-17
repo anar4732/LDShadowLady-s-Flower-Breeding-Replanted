@@ -315,15 +315,6 @@ public final class ACMCItems {
 	public static final RegistryObject<ACMCBlockItem> FLOWER_YELLOW_PEONY = REG.register("flower_yellow_peony", ACMCItems.createFlowerBlockItem(ACMCBlocks.FLOWER_YELLOW_PEONY));
 	public static final RegistryObject<ACMCBlockItem> FLOWER_LILAC_PEONY = REG.register("flower_lilac_peony", ACMCItems.createFlowerBlockItem(ACMCBlocks.FLOWER_LILAC_PEONY));
 	
-	public static final RegistryObject<ACMCBlockItem> BLACK_CANDLE = REG.register("black_candle", ACMCItems.createCandleBlockItem(ACMCBlocks.BLACK_CANDLE));
-	public static final RegistryObject<ACMCBlockItem> BLUE_CANDLE = REG.register("blue_candle", ACMCItems.createCandleBlockItem(ACMCBlocks.BLUE_CANDLE));
-	public static final RegistryObject<ACMCBlockItem> CYAN_CANDLE = REG.register("cyan_candle", ACMCItems.createCandleBlockItem(ACMCBlocks.CYAN_CANDLE));
-	public static final RegistryObject<ACMCBlockItem> GREEN_CANDLE = REG.register("green_candle", ACMCItems.createCandleBlockItem(ACMCBlocks.GREEN_CANDLE));
-	public static final RegistryObject<ACMCBlockItem> ORANGE_CANDLE = REG.register("orange_candle", ACMCItems.createCandleBlockItem(ACMCBlocks.ORANGE_CANDLE));
-	public static final RegistryObject<ACMCBlockItem> PINK_CANDLE = REG.register("pink_candle", ACMCItems.createCandleBlockItem(ACMCBlocks.PINK_CANDLE));
-	public static final RegistryObject<ACMCBlockItem> RED_CANDLE = REG.register("red_candle", ACMCItems.createCandleBlockItem(ACMCBlocks.RED_CANDLE));
-	public static final RegistryObject<ACMCBlockItem> WHITE_CANDLE = REG.register("white_candle", ACMCItems.createCandleBlockItem(ACMCBlocks.WHITE_CANDLE));
-	
 	public static final RegistryObject<ACMCBlockItem> STUNTED_FLOWER_BLACK_LILAC = REG.register("stunted_flower_black_lilac", ACMCItems.createVineFlowerBlockItem(ACMCBlocks.STUNTED_FLOWER_BLACK_LILAC));
 	public static final RegistryObject<ACMCBlockItem> STUNTED_FLOWER_BLUE_LILAC = REG.register("stunted_flower_blue_lilac", ACMCItems.createVineFlowerBlockItem(ACMCBlocks.STUNTED_FLOWER_BLUE_LILAC));
 	public static final RegistryObject<ACMCBlockItem> STUNTED_FLOWER_CYAN_LILAC = REG.register("stunted_flower_cyan_lilac", ACMCItems.createVineFlowerBlockItem(ACMCBlocks.STUNTED_FLOWER_CYAN_LILAC));
@@ -358,31 +349,27 @@ public final class ACMCItems {
 	public static final ItemGroup FlowerBreeding = new FlowerItemGroup();
 	
 	private static Item.Properties defaultProperties() {
-		return new Item.Properties().group(FlowerBreeding);
+		return new Item.Properties().tab(FlowerBreeding);
 	}
 	
 	private static Supplier<ACMCBlockItem> createFlowerCropBlockItem(final RegistryObject<BlockFlowerCrop> block) {
-		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
+		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().stacksTo(64));
 	}
 	
 	private static Supplier<ACMCBlockItem> createFlowerBlockItem(final RegistryObject<BlockFlower> block) {
-		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
+		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().stacksTo(64));
 	}
 	
 	private static Supplier<ACMCBlockItem> createFlowerCarpetBlockItem(final RegistryObject<BlockFlowerCarpet> block) {
-		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
+		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().stacksTo(64));
 	}
 	
 	private static Supplier<ACMCBlockItem> createVineFlowerBlockItem(final RegistryObject<BlockVineFlower> block) {
-		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
+		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().stacksTo(64));
 	}
 	
 	private static Supplier<ACMCBlockItem> createVineCropBlockItem(final RegistryObject<BlockFlowerVineCrop> block) {
-		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
-	}
-	
-	private static Supplier<ACMCBlockItem> createCandleBlockItem(final RegistryObject<BlockCandle> block) {
-		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
+		return () -> new ACMCBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().stacksTo(64));
 	}
 	
 }

@@ -8,7 +8,7 @@ import net.minecraftforge.fml.RegistryObject;
 public class ACMCClient {
 	public static void init() {
 		ACMCBlocks.REG.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-			RenderTypeLookup.setRenderLayer(block, RenderType.getTranslucent());
+			RenderTypeLookup.setRenderLayer(block, RenderType.translucent());
 		});
 	}
 }

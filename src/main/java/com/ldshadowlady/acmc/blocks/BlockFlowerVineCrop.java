@@ -11,13 +11,13 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
 public class BlockFlowerVineCrop extends CropsBlock {
-	protected static final VoxelShape SHAPE = Block.makeCuboidShape(15.0D, 0.0D, 5.0D, 0.0D, 16.0D, 10.0D);
+	protected static final VoxelShape SHAPE = Block.box(15.0D, 0.0D, 5.0D, 0.0D, 16.0D, 10.0D);
 	
 	public BlockFlowerVineCrop(Properties properties) {
 		super(properties);
 	}
 	
-	protected IItemProvider getSeedsItem() {
+	protected IItemProvider getBaseSeedId() {
 		return Blocks.AIR;
 	}
 	
@@ -25,7 +25,7 @@ public class BlockFlowerVineCrop extends CropsBlock {
 		return SHAPE;
 	}
 	
-	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+	protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
 		return state.getBlock() == Blocks.FARMLAND;
 	}
 }

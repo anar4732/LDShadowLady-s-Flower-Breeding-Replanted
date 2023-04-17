@@ -29,12 +29,12 @@ public class PollenJarPinkItem extends Item {
         super(properties);
     }
 
-    public ActionResultType onItemUse(ItemUseContext context) {
-        World world = context.getWorld();
-        BlockPos blockpos = context.getPos();
+    public ActionResultType useOn(ItemUseContext context) {
+        World world = context.getLevel();
+        BlockPos blockpos = context.getClickedPos();
         BlockState blockstate = world.getBlockState(blockpos);
         LivingEntity player = context.getPlayer();
-        ItemStack itemstack = context.getItem();
+        ItemStack itemstack = context.getItemInHand();
 		
         //if it is a viable flower
         if (blockstate.getBlock().equals(ROSE_BUSH) || blockstate.getBlock().equals(WITHER_ROSE) || blockstate.getBlock().equals(DANDELION) || blockstate.getBlock().equals(POPPY) ||
@@ -43,36 +43,36 @@ public class PollenJarPinkItem extends Item {
                 || blockstate.getBlock().equals(CORNFLOWER) || blockstate.getBlock().equals(LILY_OF_THE_VALLEY) || blockstate.getBlock().equals(SUNFLOWER) || blockstate.getBlock().equals(LILAC)
                 || blockstate.getBlock().equals(PEONY)){
             PlayerEntity playerentity = context.getPlayer();
-            world.playSound(playerentity, blockpos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            if (!world.isRemote) {
+            world.playSound(playerentity, blockpos, SoundEvents.AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            if (!world.isClientSide) {
                 //This replaces the jar item with full jar
-                if (player == null || !((PlayerEntity) player).abilities.isCreativeMode) {
+                if (player == null || !((PlayerEntity) player).abilities.instabuild) {
                     itemstack.shrink(1);
                 }
-                if (player == null || !((PlayerEntity) player).abilities.isCreativeMode) {
+                if (player == null || !((PlayerEntity) player).abilities.instabuild) {
                     if (itemstack.isEmpty()) {
-                        ((PlayerEntity) player).inventory.addItemStackToInventory(new ItemStack(ACMCItems.EMPTY_POLLEN_JAR.get()));
+                        ((PlayerEntity) player).inventory.add(new ItemStack(ACMCItems.EMPTY_POLLEN_JAR.get()));
                     }
                 }
 
-                if (blockstate.getBlock().equals(ROSE_BUSH)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_ROSE.get());}
-                else if (blockstate.getBlock().equals(DANDELION)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_DANDELION.get());}
-                else if (blockstate.getBlock().equals(POPPY)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_POPPY.get());}
-                else if (blockstate.getBlock().equals(BLUE_ORCHID)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_ORCHID.get());}
-                else if (blockstate.getBlock().equals(ALLIUM)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_ALLIUM.get());}
-                else if (blockstate.getBlock().equals(AZURE_BLUET)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_AZURE_BLUET.get());}
-                else if (blockstate.getBlock().equals(RED_TULIP)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_TULIP.get());}
-                else if (blockstate.getBlock().equals(ORANGE_TULIP)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_TULIP.get());}
-                else if (blockstate.getBlock().equals(WHITE_TULIP)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_TULIP.get());}
-                else if (blockstate.getBlock().equals(PINK_TULIP)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_TULIP.get());}
-                else if (blockstate.getBlock().equals(OXEYE_DAISY)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_DAISY.get());}
-                else if (blockstate.getBlock().equals(CORNFLOWER)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_CORNFLOWER.get());}
-                else if (blockstate.getBlock().equals(LILY_OF_THE_VALLEY)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_LILY.get());}
-                else if (blockstate.getBlock().equals(WITHER_ROSE)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_WITHER_ROSE.get());}
-                else if (blockstate.getBlock().equals(SUNFLOWER)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_SUNFLOWER.get());}
-                else if (blockstate.getBlock().equals(LILAC)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_LILAC.get());}
-                else if (blockstate.getBlock().equals(PEONY)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_PEONY.get());}
-                else if (blockstate.getBlock().equals(ALLIUM)) {net.minecraft.entity.item.ItemEntity ent = player.entityDropItem(ACMCBlocks.CROP_PINK_ALLIUM.get());}
+                if (blockstate.getBlock().equals(ROSE_BUSH)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_ROSE.get());}
+                else if (blockstate.getBlock().equals(DANDELION)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_DANDELION.get());}
+                else if (blockstate.getBlock().equals(POPPY)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_POPPY.get());}
+                else if (blockstate.getBlock().equals(BLUE_ORCHID)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_ORCHID.get());}
+                else if (blockstate.getBlock().equals(ALLIUM)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_ALLIUM.get());}
+                else if (blockstate.getBlock().equals(AZURE_BLUET)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_AZURE_BLUET.get());}
+                else if (blockstate.getBlock().equals(RED_TULIP)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_TULIP.get());}
+                else if (blockstate.getBlock().equals(ORANGE_TULIP)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_TULIP.get());}
+                else if (blockstate.getBlock().equals(WHITE_TULIP)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_TULIP.get());}
+                else if (blockstate.getBlock().equals(PINK_TULIP)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_TULIP.get());}
+                else if (blockstate.getBlock().equals(OXEYE_DAISY)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_DAISY.get());}
+                else if (blockstate.getBlock().equals(CORNFLOWER)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_CORNFLOWER.get());}
+                else if (blockstate.getBlock().equals(LILY_OF_THE_VALLEY)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_LILY.get());}
+                else if (blockstate.getBlock().equals(WITHER_ROSE)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_WITHER_ROSE.get());}
+                else if (blockstate.getBlock().equals(SUNFLOWER)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_SUNFLOWER.get());}
+                else if (blockstate.getBlock().equals(LILAC)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_LILAC.get());}
+                else if (blockstate.getBlock().equals(PEONY)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_PEONY.get());}
+                else if (blockstate.getBlock().equals(ALLIUM)) {net.minecraft.entity.item.ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_PINK_ALLIUM.get());}
 
 
                 // ADD PARTICLE EFFECT (DOESNT WORK
@@ -86,9 +86,9 @@ public class PollenJarPinkItem extends Item {
 
                 //it ends here
                 if (playerentity != null) {
-                    context.getItem().damageItem(1, playerentity, (p_220040_1_) ->
+                    context.getItemInHand().hurtAndBreak(1, playerentity, (p_220040_1_) ->
                     {
-                        p_220040_1_.sendBreakAnimation(context.getHand());
+                        p_220040_1_.broadcastBreakEvent(context.getHand());
                     });
                 }
                 return ActionResultType.SUCCESS;
@@ -99,7 +99,7 @@ public class PollenJarPinkItem extends Item {
         return ActionResultType.SUCCESS;
     }
     @Override
-    public void addInformation(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(new TranslationTextComponent("item.full_pollen_jar.desc"));
     }
 }

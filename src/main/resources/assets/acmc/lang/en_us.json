@@ -1,13 +1,5 @@
 {
     "itemGroup.FlowerBreeding":"Flower Breeding",
-    "block.acmc.black_candle":"Black Candle",
-    "block.acmc.blue_candle":"Blue Candle",
-    "block.acmc.cyan_candle":"Cyan Candle",
-    "block.acmc.green_candle":"Green Candle",
-    "block.acmc.orange_candle":"Orange Candle",
-    "block.acmc.pink_candle":"Pink Candle",
-    "block.acmc.red_candle":"Red Candle",
-    "block.acmc.white_candle":"White Candle",
     "item.acmc.empty_pollen_jar":"Empty Pollen Jar",
     "item.acmc.pollen_jar_rose":"Rose Pollen Jar",
     "item.acmc.pollen_jar_wither_rose":"Wither Rose Pollen Jar",

@@ -24,6 +24,6 @@ public class BlockFlower extends BushBlock {
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 		Vector3d offset = state.getOffset(world, pos);
-		return this.Shape.withOffset(offset.x, offset.y, offset.z);
+		return this.Shape.move(offset.x, offset.y, offset.z);
 	}
 }
