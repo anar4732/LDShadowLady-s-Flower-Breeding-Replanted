@@ -1,10 +1,10 @@
 package com.ldshadowlady.acmc.items;
 
 import com.ldshadowlady.acmc.blocks.ACMCBlocks;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 
-public class FlowerItemGroup extends ItemGroup {
+public class FlowerItemGroup extends CreativeModeTab {
     public FlowerItemGroup() {
         super("FlowerBreeding");
     }

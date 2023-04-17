@@ -1,12 +1,12 @@
 package com.ldshadowlady.acmc.blocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BushBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BlockFlower extends BushBlock {
 	private final VoxelShape Shape;
@@ -16,14 +16,14 @@ public class BlockFlower extends BushBlock {
 		this.Shape = ShapeIn;
 	}
 	
+	@Override
 	public OffsetType getOffsetType() {
-		
 		return OffsetType.XZ;
 	}
 	
 	@Override
-	public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
-		Vector3d offset = state.getOffset(world, pos);
+	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+		Vec3 offset = state.getOffset(world, pos);
 		return this.Shape.move(offset.x, offset.y, offset.z);
 	}
 }

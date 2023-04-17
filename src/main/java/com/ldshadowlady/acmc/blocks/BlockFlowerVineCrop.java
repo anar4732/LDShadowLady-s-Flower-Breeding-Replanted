@@ -1,31 +1,29 @@
 package com.ldshadowlady.acmc.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CropsBlock;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class BlockFlowerVineCrop extends CropsBlock {
-	protected static final VoxelShape SHAPE = Block.box(15.0D, 0.0D, 5.0D, 0.0D, 16.0D, 10.0D);
+public class BlockFlowerVineCrop extends CropBlock {
+	protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 5.0D, 15.0D, 16.0D, 10.0D);
 	
 	public BlockFlowerVineCrop(Properties properties) {
 		super(properties);
 	}
 	
-	protected IItemProvider getBaseSeedId() {
+	@Override
+	protected ItemLike getBaseSeedId() {
 		return Blocks.AIR;
 	}
 	
-	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
 		return SHAPE;
-	}
-	
-	protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		return state.getBlock() == Blocks.FARMLAND;
 	}
 }
