@@ -1,0 +1,40 @@
+modLoader = "javafml"
+loaderVersion = "[43,)"
+#issueTrackerURL = ""
+license="MIT"
+
+[[mods]]
+modId="acmc"
+version = "${version}"
+displayName="LDShadowLady's Flower Breeding: Replanted"
+authors="LDShadowLady, anar4732"
+description='''
+This mod allows you to cross-pollinate vanilla flowers to create different flowers in a variety of colours.
+
+Craft an empty pollen jar to begin, use it to right-click a vanilla flower to collect pollen.
+Transfer the pollen onto another vanilla flower to receive seeds.
+The seeds can be planted and farmed like vanilla crops.
+Once they are fully-grown you can harvest the flowers to place elsewhere.
+'''
+logoFile = "acmc.png"
+
+[[dependencies.acmc]]
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.acmc]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.acmc]]
+modId = "architectury"
+mandatory = true
+versionRange = "[6.5.77,)"
+ordering = "AFTER"
+side = "BOTH"

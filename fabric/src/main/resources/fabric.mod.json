@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "acmc",
+  "version": "${version}",
+  "name": "LDShadowLady's Flower Breeding: Replanted",
+  "description": "This mod allows you to cross-pollinate vanilla flowers to create different flowers in a variety of colours.",
+  "authors": [
+    "LDShadowLady",
+    "anar4732"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/ldshadowladys-flower-breeding-replanted",
+    "sources": "https://github.com/anar4732/acmc"
+  },
+  "license": "MIT",
+  "icon": "acmc.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.ldshadowlady.acmc.fabric.ACMCFabric"
+    ]
+  },
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.19.2",
+    "architectury": ">=6.5.77"
+  }
+}
