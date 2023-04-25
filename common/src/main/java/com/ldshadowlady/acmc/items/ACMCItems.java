@@ -4,10 +4,9 @@ import com.ldshadowlady.acmc.blocks.*;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.VineBlock;
@@ -17,7 +16,7 @@ import java.util.function.Supplier;
 import static com.ldshadowlady.acmc.ACMCMod.MODID;
 
 public final class ACMCItems {
-	public static final DeferredRegister<Item> REG = DeferredRegister.create(MODID, Registry.ITEM_REGISTRY);
+	public static final DeferredRegister<Item> REG = DeferredRegister.create(MODID, Registries.ITEM);
 	
 	public static final RegistrySupplier<Item> EMPTY_POLLEN_JAR = REG.register("empty_pollen_jar", () -> new EmptyPollenJarItem(defaultProperties()));
 	public static final RegistrySupplier<Item> POLLEN_JAR_ROSE = REG.register("pollen_jar_rose", () -> new PollenJarRedItem(defaultProperties()));
@@ -351,11 +350,11 @@ public final class ACMCItems {
 	public static final RegistrySupplier<BlockItem> STUNTED_FLOWER_YELLOW_ORCHID = REG.register("stunted_flower_yellow_orchid", ACMCItems.createVineFlowerBlockItem(ACMCBlocks.STUNTED_FLOWER_YELLOW_ORCHID));
 	public static final RegistrySupplier<BlockItem> STUNTED_FLOWER_LILAC_ORCHID = REG.register("stunted_flower_lilac_orchid", ACMCItems.createVineFlowerBlockItem(ACMCBlocks.STUNTED_FLOWER_LILAC_ORCHID));
 	
-	public static final CreativeModeTab FlowerBreeding = CreativeTabRegistry.create(new ResourceLocation(MODID, "flowerbreeding"), () ->
+	public static final CreativeTabRegistry.TabSupplier FlowerBreedingTab = CreativeTabRegistry.create(new ResourceLocation(MODID, "flowerbreeding"), () ->
 			new ItemStack(ACMCBlocks.FLOWER_PINK_POPPY.get()));
 	
 	private static Item.Properties defaultProperties() {
-		return new Item.Properties().tab(FlowerBreeding);
+		return new Item.Properties().arch$tab(FlowerBreedingTab);
 	}
 	
 	private static Supplier<BlockItem> createFlowerCropBlockItem(final RegistrySupplier<BlockFlowerCrop> block) {

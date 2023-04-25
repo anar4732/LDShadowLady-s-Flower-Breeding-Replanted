@@ -2,7 +2,7 @@ package com.ldshadowlady.acmc.blocks;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -13,7 +13,7 @@ import net.minecraft.world.level.material.Material;
 import static com.ldshadowlady.acmc.ACMCMod.MODID;
 
 public final class ACMCBlocks {
-    public static final DeferredRegister<Block> REG = DeferredRegister.create(MODID, Registry.BLOCK_REGISTRY);
+    public static final DeferredRegister<Block> REG = DeferredRegister.create(MODID, Registries.BLOCK);
 	
     //Crop blocks
     public static final RegistrySupplier<BlockFlowerCrop> CROP_BLACK_ROSE = REG.register("crop_black_rose", () -> new BlockFlowerCrop(BlockBehaviour.Properties.of(Material.DECORATION).randomTicks().noCollission().sound(SoundType.GRASS)));
