@@ -1,12 +1,12 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.1-SNAPSHOT" apply false
-    id "io.github.pacifistmc.forgix" version "1.2.6"
+    id "dev.architectury.loom" version "1.7-SNAPSHOT" apply false
+    id "io.github.pacifistmc.forgix" version "1.2.9"
 }
 
 forgix {
     group = "com.ldshadowlady.acmc" // This is the common group of the mod which by default in Architectury Template it's defined as "maven_group" in your gradle.properties. If this property is not defined then by default it'll fetch the group from the maven_group property in your gradle.properties
-    mergedJarName = "FlowerBreeding-Fabric-Forge-Quilt" // This is the name of the merged jar. If this property is not defined then by default it'll fetch the "archives_base_name" property with the "mod_version" property in your gradle.properties.
+    mergedJarName = "FlowerBreeding-Fabric-NeoForge" // This is the name of the merged jar. If this property is not defined then by default it'll fetch the "archives_base_name" property with the "mod_version" property in your gradle.properties.
     outputDir = "build/libs/Merged" // This is the output directory of the merged jar from the root project. If this property is not defined then by default it's set to "Merged".
 }
 
@@ -33,7 +33,6 @@ subprojects {
 allprojects {
     apply plugin: "java"
     apply plugin: "architectury-plugin"
-    apply plugin: "maven-publish"
 
     archivesBaseName = rootProject.archives_base_name
     version = rootProject.mod_version
@@ -49,10 +48,6 @@ allprojects {
 
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
-        options.release = 17
-    }
-
-    java {
-        withSourcesJar()
+        options.release = 21
     }
 }

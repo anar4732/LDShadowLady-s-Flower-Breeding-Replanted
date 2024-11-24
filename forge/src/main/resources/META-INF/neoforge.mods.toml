@@ -19,16 +19,16 @@ Once they are fully-grown you can harvest the flowers to place elsewhere.
 logoFile = "acmc.png"
 
 [[dependencies.acmc]]
-modId = "forge"
+modId = "neoforge"
 mandatory = true
-versionRange = "[43,)"
+versionRange = "[20,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.acmc]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.1,)"
+versionRange = "[1.20.6,)"
 ordering = "NONE"
 side = "BOTH"
 

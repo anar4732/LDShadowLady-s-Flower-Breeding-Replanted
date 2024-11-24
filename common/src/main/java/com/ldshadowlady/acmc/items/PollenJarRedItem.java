@@ -3,13 +3,13 @@ package com.ldshadowlady.acmc.items;
 import com.ldshadowlady.acmc.blocks.ACMCBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -17,28 +17,32 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 import static net.minecraft.world.level.block.Blocks.*;
 
 public class PollenJarRedItem extends Item {
-    public PollenJarRedItem(Properties properties) {
-        super(properties);
-    }
-
+	public PollenJarRedItem(Properties properties) {
+		super(properties);
+	}
+	
 	// @formatter:off
 	@Override
-    public InteractionResult useOn(UseOnContext context) {
+    public @NotNull InteractionResult useOn(UseOnContext context) {
         Level world = context.getLevel();
         BlockPos blockpos = context.getClickedPos();
         BlockState blockstate = world.getBlockState(blockpos);
         Player player = context.getPlayer();
-        ItemStack itemstack = context.getItemInHand();
+		ItemStack itemstack = context.getItemInHand();
 		
-        //if it is a viable flower
-        if (blockstate.getBlock().equals(ROSE_BUSH) ||
+		if (context.getHand() != InteractionHand.MAIN_HAND || player == null) {
+			return InteractionResult.PASS;
+		}
+		
+		if (
+				blockstate.getBlock().equals(ROSE_BUSH) ||
 		        blockstate.getBlock().equals(WITHER_ROSE) ||
 		        blockstate.getBlock().equals(DANDELION) ||
 		        blockstate.getBlock().equals(POPPY) ||
@@ -54,73 +58,54 @@ public class PollenJarRedItem extends Item {
 		        blockstate.getBlock().equals(LILY_OF_THE_VALLEY) ||
 		        blockstate.getBlock().equals(SUNFLOWER) ||
 		        blockstate.getBlock().equals(LILAC) ||
-		        blockstate.getBlock().equals(PEONY)) {
+		        blockstate.getBlock().equals(PEONY)
+        ) {
+            world.playSound(player, blockpos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
 			
-            Player Player = context.getPlayer();
-            world.playSound(Player, blockpos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
             if (!world.isClientSide) {
-                //This replaces the jar item with full jar
-                if (player == null || !player.getAbilities().instabuild) {
-                    itemstack.shrink(1);
-                }
-                if (player == null || !player.getAbilities().instabuild) {
-                    if (itemstack.isEmpty()) {
-                        player.getInventory().add(new ItemStack(ACMCItems.EMPTY_POLLEN_JAR.get()));
-                    }
-                }
-
-                if (blockstate.getBlock().equals(ROSE_BUSH)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_ROSE.get());
-				} else if (blockstate.getBlock().equals(DANDELION)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_DANDELION.get());
-				} else if (blockstate.getBlock().equals(POPPY)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_POPPY.get());
-				} else if (blockstate.getBlock().equals(BLUE_ORCHID)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_ORCHID.get());
-				} else if (blockstate.getBlock().equals(ALLIUM)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_ALLIUM.get());
-				} else if (blockstate.getBlock().equals(AZURE_BLUET)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_AZURE_BLUET.get());
-				} else if (blockstate.getBlock().equals(RED_TULIP)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_TULIP.get());
-				} else if (blockstate.getBlock().equals(ORANGE_TULIP)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_TULIP.get());
-				} else if (blockstate.getBlock().equals(WHITE_TULIP)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_TULIP.get());
-				} else if (blockstate.getBlock().equals(PINK_TULIP)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_TULIP.get());
-				} else if (blockstate.getBlock().equals(OXEYE_DAISY)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_DAISY.get());
-				} else if (blockstate.getBlock().equals(CORNFLOWER)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_CORNFLOWER.get());
-				} else if (blockstate.getBlock().equals(LILY_OF_THE_VALLEY)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_LILY.get());
-				} else if (blockstate.getBlock().equals(WITHER_ROSE)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_WITHER_ROSE.get());
-				} else if (blockstate.getBlock().equals(SUNFLOWER)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_SUNFLOWER.get());
-				} else if (blockstate.getBlock().equals(LILAC)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_LILAC.get());
-				} else if (blockstate.getBlock().equals(PEONY)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_PEONY.get());
-				} else if (blockstate.getBlock().equals(ALLIUM)) {
-					ItemEntity ent = player.spawnAtLocation(ACMCBlocks.CROP_RED_ALLIUM.get());
+				if (!player.getAbilities().instabuild) {
+					itemstack.shrink(1);
+					player.getInventory().add(new ItemStack(ACMCItems.EMPTY_POLLEN_JAR.get()));
 				}
 
-                // ADD PARTICLE EFFECT (DOESNT WORK
-                world.addParticle(ParticleTypes.EXPLOSION, blockpos.getX(), blockpos.getY(), blockpos.getZ(), 0.0D, 0.0D, 0.0D);
-				
-                if (player instanceof ServerPlayer) {
-                    CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer) player, itemstack);
-                }
-				
-                //it ends here
-                if (Player != null) {
-                    context.getItemInHand().hurtAndBreak(1, Player, (p_220040_1_) ->
-                    {
-                        p_220040_1_.broadcastBreakEvent(context.getHand());
-                    });
-                }
+                if (blockstate.getBlock().equals(ROSE_BUSH)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_ROSE.get());
+				} else if (blockstate.getBlock().equals(DANDELION)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_DANDELION.get());
+				} else if (blockstate.getBlock().equals(POPPY)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_POPPY.get());
+				} else if (blockstate.getBlock().equals(BLUE_ORCHID)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_ORCHID.get());
+				} else if (blockstate.getBlock().equals(ALLIUM)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_ALLIUM.get());
+				} else if (blockstate.getBlock().equals(AZURE_BLUET)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_AZURE_BLUET.get());
+				} else if (blockstate.getBlock().equals(RED_TULIP)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_TULIP.get());
+				} else if (blockstate.getBlock().equals(ORANGE_TULIP)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_TULIP.get());
+				} else if (blockstate.getBlock().equals(WHITE_TULIP)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_TULIP.get());
+				} else if (blockstate.getBlock().equals(PINK_TULIP)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_TULIP.get());
+				} else if (blockstate.getBlock().equals(OXEYE_DAISY)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_DAISY.get());
+				} else if (blockstate.getBlock().equals(CORNFLOWER)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_CORNFLOWER.get());
+				} else if (blockstate.getBlock().equals(LILY_OF_THE_VALLEY)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_LILY.get());
+				} else if (blockstate.getBlock().equals(WITHER_ROSE)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_WITHER_ROSE.get());
+				} else if (blockstate.getBlock().equals(SUNFLOWER)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_SUNFLOWER.get());
+				} else if (blockstate.getBlock().equals(LILAC)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_LILAC.get());
+				} else if (blockstate.getBlock().equals(PEONY)) {
+					player.spawnAtLocation(ACMCBlocks.CROP_RED_PEONY.get());
+				}
+	            
+	            CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer) player, itemstack);
+	            context.getItemInHand().hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
                 return InteractionResult.SUCCESS;
             } else {
                 return InteractionResult.PASS;
@@ -131,8 +116,7 @@ public class PollenJarRedItem extends Item {
 	// @formatter:on
 	
 	@Override
-	public void appendHoverText(ItemStack itemStack, @Nullable Level world, List< Component > list, TooltipFlag flag) {
+	public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
 		list.add(Component.translatable("item.full_pollen_jar.desc"));
-    }
-	
+	}
 }

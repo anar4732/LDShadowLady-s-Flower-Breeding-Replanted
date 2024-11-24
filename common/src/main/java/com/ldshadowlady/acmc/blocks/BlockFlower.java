@@ -1,5 +1,6 @@
 package com.ldshadowlady.acmc.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BushBlock;
@@ -20,5 +21,10 @@ public class BlockFlower extends BushBlock {
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		Vec3 offset = state.getOffset(world, pos);
 		return this.Shape.move(offset.x, offset.y, offset.z);
+	}
+	
+	@Override
+	protected MapCodec<? extends BushBlock> codec() {
+		return null;
 	}
 }
