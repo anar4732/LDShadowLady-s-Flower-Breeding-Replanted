@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "W"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "acmc:flower_magenta_orchid"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "acmc:stunted_flower_magenta_orchid"  }
+}

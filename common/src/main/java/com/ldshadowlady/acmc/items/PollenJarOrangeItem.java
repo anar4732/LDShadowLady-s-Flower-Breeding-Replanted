@@ -69,39 +69,39 @@ public class PollenJarOrangeItem extends Item {
 				}
 
                 if (blockstate.getBlock().equals(ROSE_BUSH)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_ROSE.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_ROSE.get());
 				} else if (blockstate.getBlock().equals(DANDELION)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_DANDELION.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_DANDELION.get());
 				} else if (blockstate.getBlock().equals(POPPY)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_POPPY.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_POPPY.get());
 				} else if (blockstate.getBlock().equals(BLUE_ORCHID)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_ORCHID.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_ORCHID.get());
 				} else if (blockstate.getBlock().equals(ALLIUM)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_ALLIUM.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_ALLIUM.get());
 				} else if (blockstate.getBlock().equals(AZURE_BLUET)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_AZURE_BLUET.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_AZURE_BLUET.get());
 				} else if (blockstate.getBlock().equals(RED_TULIP)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_TULIP.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_TULIP.get());
 				} else if (blockstate.getBlock().equals(ORANGE_TULIP)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_TULIP.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_TULIP.get());
 				} else if (blockstate.getBlock().equals(WHITE_TULIP)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_TULIP.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_TULIP.get());
 				} else if (blockstate.getBlock().equals(PINK_TULIP)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_TULIP.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_TULIP.get());
 				} else if (blockstate.getBlock().equals(OXEYE_DAISY)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_DAISY.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_DAISY.get());
 				} else if (blockstate.getBlock().equals(CORNFLOWER)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_CORNFLOWER.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_CORNFLOWER.get());
 				} else if (blockstate.getBlock().equals(LILY_OF_THE_VALLEY)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_LILY.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_LILY.get());
 				} else if (blockstate.getBlock().equals(WITHER_ROSE)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_WITHER_ROSE.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_WITHER_ROSE.get());
 				} else if (blockstate.getBlock().equals(SUNFLOWER)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_SUNFLOWER.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_SUNFLOWER.get());
 				} else if (blockstate.getBlock().equals(LILAC)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_LILAC.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_LILAC.get());
 				} else if (blockstate.getBlock().equals(PEONY)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_ORANGE_PEONY.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_ORANGE_PEONY.get());
 				}
 
 				CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer) player, itemstack);

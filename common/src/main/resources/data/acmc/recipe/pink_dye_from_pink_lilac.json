@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "pink_dye",
+  "ingredients": [
+    {
+      "item": "acmc:flower_pink_lilac"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:pink_dye"
+  }
+}

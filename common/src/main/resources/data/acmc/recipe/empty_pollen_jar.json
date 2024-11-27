@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "acmc:empty_pollen_jar"
+  }
+}

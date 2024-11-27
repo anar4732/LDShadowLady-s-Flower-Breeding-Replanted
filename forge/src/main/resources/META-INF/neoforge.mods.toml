@@ -28,7 +28,7 @@ side = "BOTH"
 [[dependencies.acmc]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.6,)"
+versionRange = "[1.21.2,)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -38,3 +38,6 @@ mandatory = true
 versionRange = "[7.1.78,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[mixins]]
+config = "acmc-common.mixins.json"

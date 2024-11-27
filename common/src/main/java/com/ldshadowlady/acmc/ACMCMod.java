@@ -31,13 +31,11 @@ public class ACMCMod {
 	
 	public static void init() {
 		REG_TABS.register();
-		ACMCBlocks.REG.register();
+		ACMCBlocks.BLOCKS.register();
 		ACMCItems.REG.register();
 		LifecycleEvent.SETUP.register(FlowerComposting::init);
 		EnvExecutor.runInEnv(Env.CLIENT, () -> ACMCMod.Client::initializeClient);
-//		if (Platform.getEnvironment() == Env.CLIENT) {
-//
-//		}
+//		if (Platform.getEnvironment() == Env.CLIENT) {}
 	}
 	
 	@Environment(EnvType.CLIENT)
@@ -49,7 +47,7 @@ public class ACMCMod {
 		
 		@Environment(EnvType.CLIENT)
 		public static void setupClient(Minecraft minecraft) {
-			ACMCBlocks.REG.forEach(registrySupplier -> {
+			ACMCBlocks.BLOCKS.forEach(registrySupplier -> {
 				RenderTypeRegistry.register(RenderType.cutout() , registrySupplier.get());
 			});
 		}

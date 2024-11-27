@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "purple_dye",
+  "ingredients": [
+    {
+      "item": "acmc:flower_lilac_azure_bluet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:purple_dye"
+  }
+}

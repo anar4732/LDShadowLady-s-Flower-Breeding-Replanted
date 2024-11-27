@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "red_dye",
+  "ingredients": [
+    {
+      "item": "acmc:flower_red_peony"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:red_dye"
+  }
+}

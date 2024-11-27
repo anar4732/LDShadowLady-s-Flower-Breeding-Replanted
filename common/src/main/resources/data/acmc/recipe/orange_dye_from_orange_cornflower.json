@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "orange_dye",
+  "ingredients": [
+    {
+      "item": "acmc:flower_orange_cornflower"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:orange_dye"
+  }
+}

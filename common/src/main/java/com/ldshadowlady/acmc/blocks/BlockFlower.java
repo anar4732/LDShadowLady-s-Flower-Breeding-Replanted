@@ -19,7 +19,7 @@ public class BlockFlower extends BushBlock {
 	
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		Vec3 offset = state.getOffset(world, pos);
+		Vec3 offset = state.getOffset(pos);
 		return this.Shape.move(offset.x, offset.y, offset.z);
 	}
 	

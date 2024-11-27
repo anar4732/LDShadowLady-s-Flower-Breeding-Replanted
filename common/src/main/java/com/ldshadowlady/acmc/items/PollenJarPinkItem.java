@@ -69,39 +69,39 @@ public class PollenJarPinkItem extends Item {
 				}
 
                 if (blockstate.getBlock().equals(ROSE_BUSH)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_ROSE.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_ROSE.get());
 				} else if (blockstate.getBlock().equals(DANDELION)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_DANDELION.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_DANDELION.get());
 				} else if (blockstate.getBlock().equals(POPPY)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_POPPY.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_POPPY.get());
 				} else if (blockstate.getBlock().equals(BLUE_ORCHID)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_ORCHID.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_ORCHID.get());
 				} else if (blockstate.getBlock().equals(ALLIUM)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_ALLIUM.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_ALLIUM.get());
 				} else if (blockstate.getBlock().equals(AZURE_BLUET)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_AZURE_BLUET.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_AZURE_BLUET.get());
 				} else if (blockstate.getBlock().equals(RED_TULIP)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_TULIP.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_TULIP.get());
 				} else if (blockstate.getBlock().equals(ORANGE_TULIP)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_TULIP.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_TULIP.get());
 				} else if (blockstate.getBlock().equals(WHITE_TULIP)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_TULIP.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_TULIP.get());
 				} else if (blockstate.getBlock().equals(PINK_TULIP)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_TULIP.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_TULIP.get());
 				} else if (blockstate.getBlock().equals(OXEYE_DAISY)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_DAISY.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_DAISY.get());
 				} else if (blockstate.getBlock().equals(CORNFLOWER)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_CORNFLOWER.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_CORNFLOWER.get());
 				} else if (blockstate.getBlock().equals(LILY_OF_THE_VALLEY)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_LILY.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_LILY.get());
 				} else if (blockstate.getBlock().equals(WITHER_ROSE)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_WITHER_ROSE.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_WITHER_ROSE.get());
 				} else if (blockstate.getBlock().equals(SUNFLOWER)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_SUNFLOWER.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_SUNFLOWER.get());
 				} else if (blockstate.getBlock().equals(LILAC)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_LILAC.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_LILAC.get());
 				} else if (blockstate.getBlock().equals(PEONY)) {
-					player.spawnAtLocation(ACMCBlocks.CROP_PINK_PEONY.get());
+					player.spawnAtLocation(((ServerPlayer) player).serverLevel(), ACMCBlocks.CROP_PINK_PEONY.get());
 				}
 	            
 	            CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer) player, itemstack);

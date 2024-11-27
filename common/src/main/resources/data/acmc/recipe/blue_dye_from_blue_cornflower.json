@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "blue_dye",
+  "ingredients": [
+    {
+      "item": "acmc:flower_blue_cornflower"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:blue_dye"
+  }
+}
